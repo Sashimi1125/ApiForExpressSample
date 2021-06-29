@@ -1,0 +1,7 @@
+{
+	"db_config":{
+		"host" : "localhost",  
+		"port" : 27017,   // 数据库的端口号
+		"dbname" : "sixbuyshop"  // 数据库的名字
+	}
+}
