@@ -5,4 +5,4 @@
 
 #打包: npm run build
 
-#部署可以使用 ngix / 
+#部署可以使用 ngix/apache 
