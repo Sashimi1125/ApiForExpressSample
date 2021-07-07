@@ -1,0 +1,39 @@
+{
+    "description": "lczhuanyong",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"laochen",
+    "license": "MIT",
+    "main": "lc.js",
+    "name": "laochen ",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }{
+    "description": "dafds",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"sdad",
+    "license": "MIT",
+    "main": "afdsfads",
+    "name": "asddda",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }

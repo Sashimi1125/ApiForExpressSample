@@ -1,0 +1,598 @@
+let fs = require("fs")
+//读取文件
+let fsRead = (path)=>{
+  return new Promise((resolve,reject) => {
+    fs.readFile(path,{flag:'r',encoding:"utf-8"},function(err,data){
+      if(err){
+        reject(err)
+      }else{
+        resolve(data)
+      }
+    })
+  })
+}
+//写入文件
+let  writeFile = (path,content)=>{
+  return new Promise((resolve,reject)=>{
+    fs.writeFile(path,content,{flag:"a",encoding:"utf-8"},(err)=>{
+      if(err){
+        reject(err)
+      }else{
+        resolve(err)
+      }
+    })
+  })
+}
+//删除文件
+let fsDelete = (file)=>{
+  fs.unlink(file,()=>{
+    console.log("成功删除")
+  })
+}
+
+
+module.exports = {fsRead,writeFile,fsDelete}let readline = require("readline")
+let {writeFile} = require('./lcfs')
+//导入realine 包
+//实例化接口
+let r1 = readline.createInterface({
+  output:process.stdout,
+  input:process.stdin
+})
+//设置r1 提问事件
+
+// r1.question("今晚吃啥？",(answer)=>{
+  
+// })
+
+function lcQuestion(title){
+  return new Promise((resolve,reject)=>{
+    r1.question(title,(answer)=>{
+      resolve(answer)
+    })
+  })
+}
+
+
+let createPackgage = async ()=>{
+  let name = await lcQuestion("您的包名叫什么？")
+  let description = await lcQuestion("您的包名如何描述？")
+  let main = await lcQuestion("您的主程序是什么")
+  let author = await lcQuestion("您的包的作者是谁")
+  let content = `{
+    "description": "${description}",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"${author}",
+    "license": "MIT",
+    "main": "${main}",
+    "name": "${name}",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }`
+  await writeFile('package.json',content)
+  r1.close()
+}
+
+createPackgage()
+r1.on('close',()=>{
+  process.exit(0)
+}){
+    "description": "lczhuanyong",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"laochen",
+    "license": "MIT",
+    "main": "lc.js",
+    "name": "laochen ",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }{
+    "description": "dafds",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"sdad",
+    "license": "MIT",
+    "main": "afdsfads",
+    "name": "asddda",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }{
+    "description": "lczhuanyong",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"laochen",
+    "license": "MIT",
+    "main": "lc.js",
+    "name": "laochen ",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }{
+    "description": "dafds",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"sdad",
+    "license": "MIT",
+    "main": "afdsfads",
+    "name": "asddda",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }let fs = require("fs")
+//读取文件
+let fsRead = (path)=>{
+  return new Promise((resolve,reject) => {
+    fs.readFile(path,{flag:'r',encoding:"utf-8"},function(err,data){
+      if(err){
+        reject(err)
+      }else{
+        resolve(data)
+      }
+    })
+  })
+}
+//写入文件
+let  writeFile = (path,content)=>{
+  return new Promise((resolve,reject)=>{
+    fs.writeFile(path,content,{flag:"a",encoding:"utf-8"},(err)=>{
+      if(err){
+        reject(err)
+      }else{
+        resolve(err)
+      }
+    })
+  })
+}
+//删除文件
+let fsDelete = (file)=>{
+  fs.unlink(file,()=>{
+    console.log("成功删除")
+  })
+}
+
+
+
+
+module.exports = {fsRead,writeFile,fsDelete}let fs = require("fs")
+//读取文件
+let fsRead = (path)=>{
+  return new Promise((resolve,reject) => {
+    fs.readFile(path,{flag:'r',encoding:"utf-8"},function(err,data){
+      if(err){
+        reject(err)
+      }else{
+        resolve(data)
+      }
+    })
+  })
+}
+//写入文件
+let  writeFile = (path,content)=>{
+  return new Promise((resolve,reject)=>{
+    fs.writeFile(path,content,{flag:"a",encoding:"utf-8"},(err)=>{
+      if(err){
+        reject(err)
+      }else{
+        resolve(err)
+      }
+    })
+  })
+}
+//删除文件
+let fsDelete = (file)=>{
+  fs.unlink(file,()=>{
+    console.log("成功删除")
+  })
+}
+
+
+module.exports = {fsRead,writeFile,fsDelete}let readline = require("readline")
+let {writeFile} = require('./lcfs')
+//导入realine 包
+//实例化接口
+let r1 = readline.createInterface({
+  output:process.stdout,
+  input:process.stdin
+})
+//设置r1 提问事件
+
+// r1.question("今晚吃啥？",(answer)=>{
+  
+// })
+
+function lcQuestion(title){
+  return new Promise((resolve,reject)=>{
+    r1.question(title,(answer)=>{
+      resolve(answer)
+    })
+  })
+}
+
+
+let createPackgage = async ()=>{
+  let name = await lcQuestion("您的包名叫什么？")
+  let description = await lcQuestion("您的包名如何描述？")
+  let main = await lcQuestion("您的主程序是什么")
+  let author = await lcQuestion("您的包的作者是谁")
+  let content = `{
+    "description": "${description}",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"${author}",
+    "license": "MIT",
+    "main": "${main}",
+    "name": "${name}",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }`
+  await writeFile('package.json',content)
+  r1.close()
+}
+
+createPackgage()
+r1.on('close',()=>{
+  process.exit(0)
+}){
+    "description": "lczhuanyong",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"laochen",
+    "license": "MIT",
+    "main": "lc.js",
+    "name": "laochen ",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }{
+    "description": "dafds",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"sdad",
+    "license": "MIT",
+    "main": "afdsfads",
+    "name": "asddda",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }{
+    "description": "lczhuanyong",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"laochen",
+    "license": "MIT",
+    "main": "lc.js",
+    "name": "laochen ",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }{
+    "description": "dafds",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"sdad",
+    "license": "MIT",
+    "main": "afdsfads",
+    "name": "asddda",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }let fs = require("fs")
+//读取文件
+let fsRead = (path)=>{
+  return new Promise((resolve,reject) => {
+    fs.readFile(path,{flag:'r',encoding:"utf-8"},function(err,data){
+      if(err){
+        reject(err)
+      }else{
+        resolve(data)
+      }
+    })
+  })
+}
+//写入文件
+let  writeFile = (path,content)=>{
+  return new Promise((resolve,reject)=>{
+    fs.writeFile(path,content,{flag:"a",encoding:"utf-8"},(err)=>{
+      if(err){
+        reject(err)
+      }else{
+        resolve(err)
+      }
+    })
+  })
+}
+//删除文件
+let fsDelete = (file)=>{
+  fs.unlink(file,()=>{
+    console.log("成功删除")
+  })
+}
+
+
+
+
+module.exports = {fsRead,writeFile,fsDelete}let fs = require("fs")
+//读取文件
+let fsRead = (path)=>{
+  return new Promise((resolve,reject) => {
+    fs.readFile(path,{flag:'r',encoding:"utf-8"},function(err,data){
+      if(err){
+        reject(err)
+      }else{
+        resolve(data)
+      }
+    })
+  })
+}
+//写入文件
+let  writeFile = (path,content)=>{
+  return new Promise((resolve,reject)=>{
+    fs.writeFile(path,content,{flag:"a",encoding:"utf-8"},(err)=>{
+      if(err){
+        reject(err)
+      }else{
+        resolve(err)
+      }
+    })
+  })
+}
+//删除文件
+let fsDelete = (file)=>{
+  fs.unlink(file,()=>{
+    console.log("成功删除")
+  })
+}
+
+
+module.exports = {fsRead,writeFile,fsDelete}let readline = require("readline")
+let {writeFile} = require('./lcfs')
+//导入realine 包
+//实例化接口
+let r1 = readline.createInterface({
+  output:process.stdout,
+  input:process.stdin
+})
+//设置r1 提问事件
+
+// r1.question("今晚吃啥？",(answer)=>{
+  
+// })
+
+function lcQuestion(title){
+  return new Promise((resolve,reject)=>{
+    r1.question(title,(answer)=>{
+      resolve(answer)
+    })
+  })
+}
+
+
+let createPackgage = async ()=>{
+  let name = await lcQuestion("您的包名叫什么？")
+  let description = await lcQuestion("您的包名如何描述？")
+  let main = await lcQuestion("您的主程序是什么")
+  let author = await lcQuestion("您的包的作者是谁")
+  let content = `{
+    "description": "${description}",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"${author}",
+    "license": "MIT",
+    "main": "${main}",
+    "name": "${name}",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }`
+  await writeFile('package.json',content)
+  r1.close()
+}
+
+createPackgage()
+r1.on('close',()=>{
+  process.exit(0)
+}){
+    "description": "lczhuanyong",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"laochen",
+    "license": "MIT",
+    "main": "lc.js",
+    "name": "laochen ",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }{
+    "description": "dafds",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"sdad",
+    "license": "MIT",
+    "main": "afdsfads",
+    "name": "asddda",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }{
+    "description": "lczhuanyong",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"laochen",
+    "license": "MIT",
+    "main": "lc.js",
+    "name": "laochen ",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }{
+    "description": "dafds",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"sdad",
+    "license": "MIT",
+    "main": "afdsfads",
+    "name": "asddda",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }let fs = require("fs")
+//读取文件
+let fsRead = (path)=>{
+  return new Promise((resolve,reject) => {
+    fs.readFile(path,{flag:'r',encoding:"utf-8"},function(err,data){
+      if(err){
+        reject(err)
+      }else{
+        resolve(data)
+      }
+    })
+  })
+}
+//写入文件
+let  writeFile = (path,content)=>{
+  return new Promise((resolve,reject)=>{
+    fs.writeFile(path,content,{flag:"a",encoding:"utf-8"},(err)=>{
+      if(err){
+        reject(err)
+      }else{
+        resolve(err)
+      }
+    })
+  })
+}
+//删除文件
+let fsDelete = (file)=>{
+  fs.unlink(file,()=>{
+    console.log("成功删除")
+  })
+}
+
+
+
+
+module.exports = {fsRead,writeFile,fsDelete}

@@ -1,0 +1,39 @@
+{
+    "description": "bnas",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"sda",
+    "license": "MIT",
+    "main": "ipsda",
+    "name": "jksa",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }{
+    "description": "as",
+    "keywords": [
+      "jquery",
+      "javascript",
+      "browser",
+      "library"
+    ],
+    "author":"sds",
+    "license": "MIT",
+    "main": "dsdf",
+    "name": "ja",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jquery/jquery.git"
+    },
+    "scripts": {},
+    "title": "jQuery",
+    "version": "3.6.0"
+  }

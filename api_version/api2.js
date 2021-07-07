@@ -1,6 +1,7 @@
 var express = require("express");
 var api = express.Router();
 var multiparty = require("multiparty");
+var sql_editor = require('../utils-sql/utils_sql')
 
 var mysql = require('mysql')
 var connection = mysql.createConnection({
@@ -50,6 +51,43 @@ api.post("/userLogin",function(req,res){
       }
       if(password == result[0].password){
         res.json({code:200,msg:`登录成功,欢迎回来${result[0].userName}`,loginName:result[0].userName})
+      }else{
+        res.json({code:500,msg:'登录失败，密码不正确'})
+      }
+      
+    })
+    connection.end()
+})
+
+//登录接口
+api.post("/userLoginForReact/login",function(req,res){
+  connection = mysql.createConnection(connection.config);
+  connection.connect()
+  console.log('Login req1',req.body)
+  let username = req.body.usernmae
+  // let password = req.body.password
+  if(!username){
+    res.json({code:500,msg:'登录失败，用户名不能为空'})
+    return
+  }
+  // if(!password){
+  //   res.json({code:500,msg:'登录失败，密码不能为空'})
+  //   return
+  // }
+  sql = `SELECT * FROM react_ts WHERE usernmae = '${username}'`;
+
+  connection.query(sql,function(error,result){
+    if(error){
+      console.log('[SELECT ERROR]:',error.message)
+    }
+      console.log('resule',result)
+      if(result.length===0){
+        res.json({code:500,msg:'用户名不存在'})
+        return
+      }
+       if(username == result[0].usernmae){
+      //   res.json({code:200,msg:`登录成功,欢迎回来${result[0].usernmae}`,loginName:result[0].usernmae})
+        res.json({info:{token:'xxxxx',usernmae:'张三',id:'0900',avatar:null},code:200})
       }else{
         res.json({code:500,msg:'登录失败，密码不正确'})
       }
@@ -133,9 +171,11 @@ api.post("/AddUser",function(req,res){
   connection.query(sql,function(error,result){
     if(error){
       console.log('[SELECT ERROR]:',error.message)
-    }
+      res.json({code:500,msg:error.message})
+    }else{
       console.log('resule',result)
       res.json({code:200,msg:'成功',rows:result})
+    } 
     })
     connection.end()
 })
@@ -156,6 +196,7 @@ api.get("/random/:min/:max", function(req, res) {
   }
  
   var result = Math.round((Math.random() * (max - min)) + min);
+  // sql_editor()
   res.json({ result: result,code:200 });
 });
 
